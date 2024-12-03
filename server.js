@@ -26,7 +26,6 @@ app.use(cors({
 // Middleware
 //app.use(cors());
 app.use(express.json());
-app.use(express.static(path.join(__dirname, 'public')))
 
 // Session configuration
 app.use(session({
@@ -61,6 +60,7 @@ mongoose.connect(process.env.MONGODB_URI, {useNewUrlParser: true,}
 app.use('/api/users', userRoutes);
 app.use('/api/tasks', taskRoutes);
 
+app.use(express.static(path.join(__dirname, 'public')))
 // app.get('*', (req, res) => {
 //   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 // });
